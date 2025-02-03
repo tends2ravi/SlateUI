@@ -7,9 +7,10 @@ import DataTable from '../../components/common/DataTable';
 import { fetchStudentsBySchool } from '../../services/api';
 
 function SchoolDashboard() {
-  const { data: students, isLoading } = useQuery(['schoolStudents'], () =>
-    fetchStudentsBySchool('Green Valley High')
-  );
+  const { data: students, isLoading } = useQuery({
+    queryKey: ['schoolStudents', 'Green Valley High'], // Added school name to key
+    queryFn: () => fetchStudentsBySchool('Green Valley High')
+  });
 
   if (isLoading) return <LoadingSpinner />;
 

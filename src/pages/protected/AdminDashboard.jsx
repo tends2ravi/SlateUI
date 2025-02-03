@@ -11,8 +11,15 @@ import {
 
 function AdminDashboard() {
   // Load data with React Query
-  const { data: schools, isLoading: loadingSchools } = useQuery(['schools'], fetchSchools);
-  const { data: students, isLoading: loadingStudents } = useQuery(['students'], fetchStudents);
+  const { data: schools, isLoading: loadingSchools } = useQuery({
+    queryKey: ['schools'],
+    queryFn: fetchSchools
+  });
+  
+  const { data: students, isLoading: loadingStudents } = useQuery({
+    queryKey: ['students'],
+    queryFn: fetchStudents
+  });
 
   if (loadingSchools || loadingStudents) return <LoadingSpinner />;
 

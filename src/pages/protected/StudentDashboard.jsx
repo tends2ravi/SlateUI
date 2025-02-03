@@ -8,9 +8,10 @@ import { fetchStudentAchievements } from '../../services/api';
 
 function StudentDashboard() {
   // Hard-coded to 'Alice' for demo
-  const { data, isLoading } = useQuery(['studentAchievements', 'Alice'], () =>
-    fetchStudentAchievements('Alice')
-  );
+  const { data, isLoading } = useQuery({
+    queryKey: ['studentAchievements', 'Alice'],
+    queryFn: () => fetchStudentAchievements('Alice')
+  });
 
   if (isLoading) return <LoadingSpinner />;
 

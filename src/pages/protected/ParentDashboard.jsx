@@ -9,10 +9,11 @@ import { fetchChildAchievements } from '../../services/api';
 
 function ParentDashboard() {
   const [searchText, setSearchText] = useState('');
-  const { data, isLoading } = useQuery(['childAchievements', 'Bob'], () =>
-    fetchChildAchievements('Bob')
-  );
-
+  const { data, isLoading } = useQuery({ 
+    queryKey: ['childAchievements', 'Bob'],
+    queryFn: () => fetchChildAchievements('Bob')
+  });
+  
   if (isLoading) return <LoadingSpinner />;
 
   const filtered = data.filter((ach) =>

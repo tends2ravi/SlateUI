@@ -1,10 +1,9 @@
 // src/App.jsx
-import React, { useState } from 'react';
+import React from 'react';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
-import { MantineProvider, ColorSchemeScript, AppShell, ActionIcon } from '@mantine/core';
-import { useMantineColorScheme } from '@mantine/hooks';
-
+import { MantineProvider } from '@mantine/core';
+import { useColorScheme } from '@mantine/hooks';
 
 // Layout & Protected Routes
 import ProtectedRoute from './components/layout/ProtectedRoute';
@@ -52,18 +51,30 @@ const router = createBrowserRouter([
 
 export default function App() {
   // Dark/Light theme toggle
-  const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
-  const toggleColorScheme = (value) => {
-    setColorScheme(value || (colorScheme === 'light' ? 'dark' : 'light'));
-  };
+//   const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
+//   const toggleColorScheme = (value) => {
+//     setColorScheme(value || (colorScheme === 'light' ? 'dark' : 'light'));
+//   };
 
-  return (
-    <AuthProvider>
-      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
-          <RouterProvider router={router} />
-        </MantineProvider>
-      </ColorSchemeProvider>
-    </AuthProvider>
-  );
+//   return (
+//     <AuthProvider>
+//       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+//         <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
+//           <RouterProvider router={router} />
+//         </MantineProvider>
+//       </ColorSchemeProvider>
+//     </AuthProvider>
+//   );
+// }
+
+  
+const { colorScheme } = useColorScheme();
+
+return (
+  <AuthProvider>
+    <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
+      <RouterProvider router={router} />
+    </MantineProvider>
+  </AuthProvider>
+);
 }

@@ -1,13 +1,14 @@
 // src/components/layout/AppLayout.jsx
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { AppShell, Navbar, Header, ActionIcon, useMantineColorScheme } from '@mantine/core';
-import { IconMoonStars, IconSun } from '@tabler/icons-react';
+import { AppShell, ActionIcon } from '@mantine/core';
+import { AppShellNavbar as Navbar, AppShellHeader as Header } from '@mantine/core';
+import { useColorScheme } from '@mantine/hooks';
+import { IconSun, IconMoonStars } from '@tabler/icons-react';
 import DashboardNav from './DashboardNav';
-import { useMantineColorScheme } from '@mantine/hooks';
 
 function AppLayout() {
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const { colorScheme, toggleColorScheme } = useColorScheme();
   const dark = colorScheme === 'dark';
 
   return (
