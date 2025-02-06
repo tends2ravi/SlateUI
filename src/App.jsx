@@ -3,7 +3,7 @@ import React from 'react';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { MantineProvider } from '@mantine/core';
-import { useColorScheme } from '@mantine/hooks';
+import { useMantineColorScheme } from '@mantine/core';
 
 // Layout & Protected Routes
 import ProtectedRoute from './components/layout/ProtectedRoute';
@@ -68,11 +68,11 @@ export default function App() {
 // }
 
   
-const { colorScheme } = useColorScheme();
+const { colorScheme } = useMantineColorScheme();
 
 return (
   <AuthProvider>
-    <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
+    <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS defaultColorScheme="dark">
       <RouterProvider router={router} />
     </MantineProvider>
   </AuthProvider>

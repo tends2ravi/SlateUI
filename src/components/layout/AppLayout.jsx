@@ -3,12 +3,12 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { AppShell, ActionIcon } from '@mantine/core';
 import { AppShellNavbar as Navbar, AppShellHeader as Header } from '@mantine/core';
-import { useColorScheme } from '@mantine/hooks';
+import { useMantineColorScheme } from '@mantine/core';
 import { IconSun, IconMoonStars } from '@tabler/icons-react';
 import DashboardNav from './DashboardNav';
 
 function AppLayout() {
-  const { colorScheme, toggleColorScheme } = useColorScheme();
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const dark = colorScheme === 'dark';
 
   return (
