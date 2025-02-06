@@ -47,7 +47,7 @@ Slate Dashboard provides:
 1. Clone the repository:
 
 ```bash
-git clone [https://github.com/yourusername/slate-dashboard.git](https://github.com/yourusername/slate-dashboard.git)
+git clone https://github.com/tends2ravi/SlateUI.git
 cd slate-dashboard
 ```
 
@@ -67,7 +67,6 @@ This will install:
 - recharts
 - react-router-dom
 - react, react-dom, react-scripts (and other standard React packages)
-```
 
 ## Usage
 
@@ -88,7 +87,7 @@ npm start
 - After login, select your role. The chosen role will navigate you to the corresponding dashboard.
 
 ## Project Structure
-
+```
 slate-dashboard/
 ├── package.json
 ├── public/
@@ -122,6 +121,7 @@ slate-dashboard/
 │   ├── App.jsx
 │   └── main.jsx
 └── README.md
+```
 
 - assets/styles: Global CSS styles.
 - components/common: Reusable components like DataTable and LoadingSpinner.
